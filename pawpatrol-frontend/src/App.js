@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 // ══════════════════════════════════════════════════════════════════════════════
 //  API HELPER
 // ══════════════════════════════════════════════════════════════════════════════
-const API = "http://localhost:5000/api";
+const API = process.env.REACT_APP_API_URL + "/api" || "http://localhost:5000/api";
 
 const apiFetch = async (path, options = {}) => {
   const token = localStorage.getItem("pp_token");
