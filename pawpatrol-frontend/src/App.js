@@ -1,10 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
-// ══════════════════════════════════════════════════════════════════════════════
-//  API HELPER
-// ══════════════════════════════════════════════════════════════════════════════
-const API = process.env.REACT_APP_API_URL + "/api" || "http://localhost:5000/api";
 
+const API = (process.env.REACT_APP_API_URL || "http://localhost:5000") + "/api";
 const apiFetch = async (path, options = {}) => {
   const token = localStorage.getItem("pp_token");
   const res   = await fetch(`${API}${path}`, {
@@ -19,9 +16,9 @@ const apiFetch = async (path, options = {}) => {
   return data;
 };
 
-// ══════════════════════════════════════════════════════════════════════════════
+
 //  GLOBAL STYLES
-// ══════════════════════════════════════════════════════════════════════════════
+
 const GLOBAL_CSS = `
   @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Pacifico&family=Fredoka:wght@500;600;700&family=Poppins:wght@400;600;800&family=Inter:wght@800&display=swap');
   @import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css');
